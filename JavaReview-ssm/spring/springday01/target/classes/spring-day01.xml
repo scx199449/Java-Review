@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--HelloSpring的都属于无参构造器实例化bean-->
+    <!--指定id，则id为唯一标识符，在ioc容器中必须唯一-->
+    <bean class="HelloSpring" id="helloSpring"/>
+    <!--指定name，name为唯一标识符，在ioc容器中必须唯一-->
+    <bean name="hello" class="HelloSpring"/>
+    <!--同时指定id和name，id就是标识符，name就是别名，在ioc容器中必须唯一-->
+    <!--如果id和name一样，ioc容器能检测到，并消除冲突-->
+    <bean id="hello1" name="hellospring1" class="HelloSpring"/>
+    <!--指定多个name，多个name用","、";"、" "分割，第一个作为标识符，其他的是别名，标识符都是在ioc容器中唯一-->
+    <bean name="hello2;hello3,hello4 hello5" class="HelloSpring"/>
+    <bean id="hello6" name="hello11,hello12" class="HelloSpring"/>
+    <!--使用<alias>标签指定别名，别名也必须在ioc容器中唯一-->
+    <bean name="helloSpring01" class="HelloSpring"/>
+    <alias name="helloSpring01" alias="alias1"/>
+    <alias name="helloSpring01" alias="alias2"/>
+
+
+</beans>
